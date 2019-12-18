@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.CameraX;
 import androidx.camera.core.Preview;
 import androidx.camera.core.PreviewConfig;
-import androidx.camera.core.UseCaseConfig;
 import androidx.core.content.ContextCompat;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void startCamera() {
         // Create configuration object for the viewfinder use case
-        PreviewConfig previewConfig = new PreviewConfig.Builder<>()
-
-        setTargetRotation(getWindowManager().getDefaultDisplay().getRotation())
+        PreviewConfig previewConfig = new PreviewConfig.Builder()
+                .setTargetRotation(getWindowManager().getDefaultDisplay().getRotation())
+                .build();
 
 
         // Build the viewfinder use case
